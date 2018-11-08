@@ -12,6 +12,9 @@ public class DataUtil {
         }
         return arr;
     }
+    public static int[] getDefaultArr(){
+        return getRandomArr(20,15);
+    }
     public static void showArr(int[] arr){
         System.out.println(Arrays.toString(arr));
     }
