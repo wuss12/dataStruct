@@ -6,11 +6,11 @@ public class MatchSplit {
     public static void matchs(String str){
         char[] chars = str.toCharArray();
         int len = chars.length;
-        bo
+        boolean needRun = true;
         StackDemo<Character> stack = new StackDemo(len);
         char outCh;
         char stackCh;
-        for (int i=0;i<len;i++){
+        for (int i=0;i<len && needRun;i++){
             outCh = chars[i];
             switch (outCh){
                 case '(':
@@ -23,6 +23,7 @@ public class MatchSplit {
                 case '}':
                     if(stack.isEmpty()){
                         System.out.println("不匹配");
+                        needRun = false;
                         break;
                     }
                     stackCh = stack.peek();
@@ -32,7 +33,7 @@ public class MatchSplit {
                         stack.pop();
                         break;
                     }
-
+                    needRun = false;
                     System.out.println("不匹配");
                     break;
             }
